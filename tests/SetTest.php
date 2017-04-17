@@ -29,8 +29,19 @@ class SetTest extends TestCase
 
     public function testSize()
     {
-      $this->assertSame(0, $this->emptySet->size());
-      $this->assertSame(1, $this->oneSet->size());
-      $this->assertSame(3, $this->manySet->size());
+        $this->assertSame(0, $this->emptySet->size());
+        $this->assertSame(1, $this->oneSet->size());
+        $this->assertSame(3, $this->manySet->size());
+    }
+
+    public function testContains() {
+        $this->assertTrue($this->oneSet->contains('something'));
+        $this->assertTrue($this->manySet->contains('one'));
+        $this->assertTrue($this->manySet->contains(2));
+        $this->assertTrue($this->manySet->contains('3'));
+
+        $this->assertFalse($this->emptySet->contains('something'));
+        $this->assertFalse($this->oneSet->contains('nothing'));
+        $this->assertFalse($this->manySet->contains('2'));
     }
 }
