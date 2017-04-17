@@ -46,4 +46,18 @@ class SetTest extends TestCase
         $this->assertFalse($this->oneSet->contains('nothing'));
         $this->assertFalse($this->manySet->contains('2'));
     }
+
+    public function testAdd()
+    {
+        $set = new Set();
+
+        $this->assertTrue($set->isEmpty());
+
+        $set->add('item');
+        $this->assertSame(1, $set->size());
+        $this->assertTrue($set->contains('item'));
+
+        $set->add('item');
+        $this->assertSame(1, $set->size());
+    }
 }

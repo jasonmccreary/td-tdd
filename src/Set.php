@@ -10,7 +10,9 @@ class Set {
   }
 
   public function add($item) {
-    $this->items[] = $item;
+      if (!$this->contains($item)) {
+          $this->items[] = $item;
+      }
   }
 
   public function size() {
