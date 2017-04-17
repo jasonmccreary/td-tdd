@@ -9,7 +9,8 @@ class SetTest extends TestCase
     private $oneSet;
     private $manySet;
 
-    public function setUp() {
+    public function setUp()
+    {
         $this->emptySet = new Set();
 
         $this->oneSet = new Set();
@@ -34,7 +35,8 @@ class SetTest extends TestCase
         $this->assertSame(3, $this->manySet->size());
     }
 
-    public function testContains() {
+    public function testContains()
+    {
         $this->assertTrue($this->oneSet->contains('something'));
         $this->assertTrue($this->manySet->contains('one'));
         $this->assertTrue($this->manySet->contains(2));

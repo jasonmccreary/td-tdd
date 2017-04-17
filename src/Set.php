@@ -3,20 +3,18 @@
 namespace Tdd;
 
 class Set {
-  private $size = 0;
   private $items = [];
 
   public function isEmpty() {
-    return $this->size === 0;
+    return $this->size() === 0;
   }
 
   public function add($item) {
-    ++$this->size;
     $this->items[] = $item;
   }
 
   public function size() {
-    return $this->size;
+    return count($this->items);
   }
 
   public function contains($item) {
