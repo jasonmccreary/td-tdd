@@ -20,14 +20,18 @@ class Set {
   }
 
   public function contains($item) {
-    return in_array($item, $this->items, true);
+    return $this->indexOf($item) !== false;
   }
 
   public function remove($item) {
-    $index = array_search($item, $this->items, true);
+    $index = $this->indexOf($item);
 
     if ($index !== false) {
         unset($this->items[$index]);
     }
+  }
+
+  private function indexOf($item) {
+    return array_search($item, $this->items, true);
   }
 }
