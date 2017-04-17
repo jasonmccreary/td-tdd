@@ -5,29 +5,32 @@ use Tdd\Set;
 
 class SetTest extends TestCase
 {
+    private $emptySet;
+    private $oneSet;
+    private $manySet;
+
+    public function setUp() {
+        $this->emptySet = new Set();
+
+        $this->oneSet = new Set();
+        $this->oneSet->add('something');
+
+        $this->manySet = new Set();
+        $this->manySet->add('one');
+        $this->manySet->add(2);
+        $this->manySet->add('3');
+    }
+
     public function testIsEmpty()
     {
-        $emptySet = new Set();
-        $this->assertTrue($emptySet->isEmpty());
-
-        $oneSet = new Set();
-        $oneSet->add('something');
-        $this->assertFalse($oneSet->isEmpty());
+        $this->assertTrue($this->emptySet->isEmpty());
+        $this->assertFalse($this->oneSet->isEmpty());
     }
 
     public function testSize()
     {
-      $emptySet = new Set();
-      $this->assertSame(0, $emptySet->size());
-
-      $oneSet = new Set();
-      $oneSet->add('something');
-      $this->assertSame(1, $oneSet->size());
-
-      $manySet = new Set();
-      $manySet->add('one');
-      $manySet->add(2);
-      $manySet->add('3');
-      $this->assertSame(3, $manySet->size());
+      $this->assertSame(0, $this->emptySet->size());
+      $this->assertSame(1, $this->oneSet->size());
+      $this->assertSame(3, $this->manySet->size());
     }
 }
