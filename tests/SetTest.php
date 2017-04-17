@@ -60,4 +60,19 @@ class SetTest extends TestCase
         $set->add('item');
         $this->assertSame(1, $set->size());
     }
+
+    public function testRemove()
+    {
+        $set = new Set();
+        $set->add('item 1');
+        $set->add('item 2');
+
+        $set->remove('item 2');
+        $this->assertSame(1, $set->size());
+        $this->assertTrue($set->contains('item 1'));
+
+        $set->remove('non-existent item');
+        $this->assertSame(1, $set->size());
+        $this->assertTrue($set->contains('item 1'));
+    }
 }

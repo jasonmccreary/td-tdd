@@ -22,4 +22,12 @@ class Set {
   public function contains($item) {
     return in_array($item, $this->items, true);
   }
+
+  public function remove($item) {
+    $index = array_search($item, $this->items, true);
+
+    if ($index !== false) {
+        unset($this->items[$index]);
+    }
+  }
 }
